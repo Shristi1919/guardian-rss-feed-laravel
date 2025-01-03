@@ -34,7 +34,7 @@ The application provides an endpoint to fetch RSS feeds from The Guardian's API 
 
 ### Get RSS Feed for a Specific Section
 
-- **Endpoint**: `http://localhost:8000/rssfeed/{section}`
+- **Endpoint**:  `/rssfeed/{section}`
 - **Method**: `GET`
 - **Parameters**: 
   - `{section}`: The section name for which you want to fetch the RSS feed. The section name must be in lowercase and can include hyphens (e.g., `lifeandstyle`, `politics`).
