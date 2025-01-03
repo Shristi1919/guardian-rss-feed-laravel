@@ -7,5 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('rssfeed/{section}', [RssFeedController::class, 'getRssFeed'])
-    ->where('section', '[a-z-]+');
+// Route::get('rssfeed/{section}', [RssFeedController::class, 'getRssFeed'])
+//     ->where('section', '[a-z-]+');
+
+    Route::get('/rssfeed/{section}', [RssFeedController::class, 'getRssFeed']);
+

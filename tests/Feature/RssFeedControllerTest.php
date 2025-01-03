@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 
 class RssFeedControllerTest extends TestCase
@@ -17,14 +18,20 @@ class RssFeedControllerTest extends TestCase
             $response->assertHeader('Content-Type', 'application/rss+xml');
         }
     }
-    // public function testErrorForInvalidSectionName()
-    // {
-    //     $response = $this->get('/rssfeed/invalid-section');
-    //     $response->assertStatus(400);
-    //     $response->assertJson([
-    //         'error' => 'Invalid section name. Only lowercase and hyphens are allowed.',
-    //     ]);
-    // }
+    public function testErrorForInvalidSectionName()
+    {
+        // $response = $this->get('/rssfeed/invalid-section');
+        $response = $this->get('/rssfeed/life_and_style');
+        // Log the full response to check the issue
+        Log::info('Test Response: ' . $response->getContent());
+        // dd($response);
+        // Assert the expected error
+        $response->assertStatus(400);
+        $response->assertJson([
+            'error' => 'Invalid section name. Only lowercase and hyphens are allowed.',
+        ]);
+    }
+
 
     public function testRssFeedCacheDuration()
     {
