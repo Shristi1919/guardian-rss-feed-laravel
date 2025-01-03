@@ -25,7 +25,7 @@ This project is a simple Laravel-based application that fetches and serves RSS f
 
  ## Screenshots
  1. Screenshot of Politics
- ![RSS Feed Example](Screenshots/politics.png)
+![Screenshot](https://github.com/Shristi1919/guardian-rss-feed-laravel/blob/main/public/Screenshots/politics.png)
 
 2. Screenshot of Life and Style
  ![RSS Feed Example](Screenshots/lifeandstyle.png)
