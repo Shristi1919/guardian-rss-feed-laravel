@@ -22,7 +22,7 @@ This project is a simple Laravel-based application that fetches and serves RSS f
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/guardian-rss-feed-laravel.git
-2. Install the dependencies: composer install
+2. Install the dependencies:    ```bash  composer install
 
 ## API Endpoints
 
