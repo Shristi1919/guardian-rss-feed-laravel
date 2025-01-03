@@ -22,6 +22,37 @@ This project is a simple Laravel-based application that fetches and serves RSS f
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/guardian-rss-feed-laravel.git
+2. Install the dependencies: composer install
+
+## API Endpoints
+
+The application provides an endpoint to fetch RSS feeds from The Guardian's API for different sections. The endpoint is as follows:
+
+### Get RSS Feed for a Specific Section
+
+- **Endpoint**: `http://localhost:8000/rssfeed/{section}`
+- **Method**: `GET`
+- **Parameters**: 
+  - `{section}`: The section name for which you want to fetch the RSS feed. The section name must be in lowercase and can include hyphens (e.g., `lifeandstyle`, `politics`).
+
+
+### Example
+
+To fetch the RSS feed for a specific section, replace `{section}` with the desired section name. For example:
+
+- `/rssfeed/politics`
+- `/rssfeed/lifeandstyle`
+Make sure to use lowercase letters and hyphens for the section names.
+
+
+## Running Tests with PHP Artisan
+
+To run the tests for the application, use the following command:
+
+1. **Run All Tests**:  
+   This will run all the tests in the application:
+   ```bash
+   php artisan test
 
  ## Screenshots
  1. Screenshot of Politics

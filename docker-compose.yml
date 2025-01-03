@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # Laravel application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/var/www
+    networks:
+      - app-network
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=your_database
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+
+  # MySQL database service
+  db:
+    image: mysql:5.7
+    container_name: laravel_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - app-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database
+
+  # Composer utility container for running composer commands
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - .:/app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
