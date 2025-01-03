@@ -10,17 +10,14 @@ class RssFeedController extends Controller
 {
     public function getRssFeed($section)
     {
-        // if (!preg_match('/^[a-z-]+$/', $section)) {
-            Log::info('Section received: ' . $section);
+        Log::info('Section received: ' . $section);
+        if (!preg_match('/^[a-z-]+$/', $section)) {
+            Log::warning('Invalid section name provided: ' . $section);
+            return response()->json([
+                'error' => 'Invalid section name. Only lowercase and hyphens are allowed.',
+            ], 400);
+        }
 
-            if (!preg_match('/^[a-z-]+$/', $section)) {
-                Log::warning('Invalid section name provided: ' . $section);
-                return response()->json([
-                    'error' => 'Invalid section name. Only lowercase and hyphens are allowed.',
-                ], 400);
-            }
-
-        // dd($section);
         $apiKey = '845699dd-6621-4ab1-8bf9-02d41a287158';
         $guardianApiUrl = "https://content.guardianapis.com/$section";
 
