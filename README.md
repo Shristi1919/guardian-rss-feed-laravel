@@ -28,8 +28,8 @@ This project is a simple Laravel-based application that fetches and serves RSS f
 ![Screenshot](https://github.com/Shristi1919/guardian-rss-feed-laravel/blob/main/public/Screenshots/politics.png)
 
 2. Screenshot of Life and Style
- ![RSS Feed Example](Screenshots/lifeandstyle.png)
+![Screenshot](https://github.com/Shristi1919/guardian-rss-feed-laravel/blob/main/public/Screenshots/ifeandstyle.png)
 
 3. Screenshot of Invalid Section
- ![RSS Feed Example](Screenshots/invalid-section.png)
+![Screenshot](https://github.com/Shristi1919/guardian-rss-feed-laravel/blob/main/public/Screenshots/invalid-section.png)
 
