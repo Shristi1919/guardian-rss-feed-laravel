@@ -11,8 +11,8 @@ This project is a simple Laravel-based application that fetches and serves RSS f
 
 ## Requirements
 
-- PHP 8.x or higher
-- Laravel 8.x or higher
+- PHP 8.2.0 or higher
+- Laravel 11.x or higher
 - Composer
 - Cache driver (e.g., Redis, Memcached, or File)
 - API key from [The Guardian API](https://open-platform.theguardian.com/documentation/)
