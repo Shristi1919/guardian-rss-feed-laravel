@@ -33,3 +33,5 @@ This project is a simple Laravel-based application that fetches and serves RSS f
 3. Screenshot of Invalid Section
 ![Screenshot](https://github.com/Shristi1919/guardian-rss-feed-laravel/blob/main/public/Screenshots/invalid-section.png)
 
+3. Screenshot of Test Case
+![Screenshot](https://github.com/Shristi1919/guardian-rss-feed-laravel/blob/main/public/Screenshots/testcase.png)
