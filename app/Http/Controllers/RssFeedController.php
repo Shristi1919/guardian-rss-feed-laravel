@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\GuardianApiService;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 class RssFeedController extends Controller
 {
+    protected $guardianApiService;
+
+    public function __construct(GuardianApiService $guardianApiService)
+    {
+        $this->guardianApiService = $guardianApiService;
+    }
+
     public function getRssFeed($section)
     {
         Log::info('Section received: ' . $section);
@@ -18,30 +25,22 @@ class RssFeedController extends Controller
             ], 400);
         }
 
-        $apiKey = '845699dd-6621-4ab1-8bf9-02d41a287158';
-        $guardianApiUrl = "https://content.guardianapis.com/$section";
-
         $rssFeed = Cache::get($section);
 
         if (!$rssFeed) {
-            $response = Http::get($guardianApiUrl, [
-                'api-key' => $apiKey,
-                'format' => 'json',
-            ]);
+            $data = $this->guardianApiService->fetchSections($section);
 
-            if ($response->failed()) {
+            if (is_null($data)) {
                 return response()->json([
                     'error' => 'Error fetching data from The Guardian API.',
                 ], 500);
             }
 
-            $data = $response->json();
             if (empty($data['response']['results'])) {
                 return response()->json([
                     'error' => 'No articles found for the given section.',
                 ], 404);
             }
-
             $rssFeed = $this->convertToRss($data);
 
             Cache::put($section, $rssFeed, now()->addMinutes(10));
